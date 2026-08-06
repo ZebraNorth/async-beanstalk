@@ -7,13 +7,15 @@ on:
 permissions:
     # Required for publishing to NPM via OIDC
     id-token: write
-    contents: read
+    contents: write
 
 jobs:
     publish-package:
         runs-on: ubuntu-slim
         steps:
             - uses: actions/checkout@v7
+              with:
+                fetch-depth: '0'
             - uses: actions/setup-node@v7
               with:
                 node-version: '24'
@@ -23,3 +25,12 @@ jobs:
             - run: 'sed -i "s/\"version\": \"1.0.0\"/\"version\": \"${GITHUB_REF#refs/tags/v}\"/" package.json'
             - run: npm run docs
             - run: npm publish --access=public
+            - run: |
+                mv docs $RUNNER_TEMP
+                git checkout github-pages
+                mv $RUNNER_TEMP/docs/* .
+                git add .
+                git commit -am "${GITHUB_REF#refs/tags/}"
+                git config user.name "Zebra North"
+                git config user.email "mrzebra@mrzebra.co.uk"
+                git push
