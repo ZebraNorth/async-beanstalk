@@ -31,6 +31,7 @@ jobs:
                 git config user.email "mrzebra@mrzebra.co.uk"
                 git checkout .
                 git checkout github-pages
+                git clean --force -d
                 mv $RUNNER_TEMP/docs/* .
                 git add .
                 git commit -am "${GITHUB_REF#refs/tags/}"
