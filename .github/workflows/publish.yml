@@ -17,6 +17,7 @@ jobs:
             - uses: actions/setup-node@v7
               with:
                 node-version: '22'
+                registry-url: 'https://registry.npmjs.org'
                 package-manager-cache: false
             - run: npm ci
             - run: 'sed -i "s/\"version\": \"1.0.0\"/\"version\": \"${GITHUB_REF#refs/tags/v}\"/" package.json'
