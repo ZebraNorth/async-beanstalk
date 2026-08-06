@@ -19,7 +19,6 @@ jobs:
                 node-version: '22'
                 package-manager-cache: false
             - run: npm ci
-            - run: 'echo sed -i "s/\"version\": \"1.0.0\"/\"version\": \"$GITHUB_REF\"/" package.json'
-            - run: 'sed -i "s/\"version\": \"1.0.0\"/\"version\": \"$GITHUB_REF\"/" package.json'
+            - run: 'sed -i "s/\"version\": \"1.0.0\"/\"version\": \"${GITHUB_REF#refs/tags/v}\"/" package.json'
             - run: npm run docs
             - run: npm publish --access=public
