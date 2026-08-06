@@ -1,0 +1,19 @@
+{
+    "name": "Async Beanstalk",
+    "entryPoints": [
+        "index.ts"
+    ],
+    "plugin": [
+        "typedoc-material-theme"
+    ],
+    "sidebarLinks": {
+        "Example": "https://zebra-north.com"
+    },
+    "navigation": {
+        "includeCategories": true,
+        "includeGroups": false,
+        "includeFolders": true,
+        "compactFolders": false,
+        "excludeReferences": true
+    }
+}
