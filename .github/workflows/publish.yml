@@ -27,11 +27,11 @@ jobs:
             - run: npm publish --access=public
             - run: |
                 mv docs $RUNNER_TEMP
+                git config user.name "Zebra North"
+                git config user.email "mrzebra@mrzebra.co.uk"
                 git checkout .
                 git checkout github-pages
                 mv $RUNNER_TEMP/docs/* .
                 git add .
                 git commit -am "${GITHUB_REF#refs/tags/}"
-                git config user.name "Zebra North"
-                git config user.email "mrzebra@mrzebra.co.uk"
                 git push
