@@ -1,8 +1,9 @@
-name: Verify
+name: Publish
 on:
-    push
+    release:
+        types: [created]
 jobs:
-    build:
+    publish-package:
         runs-on: ubuntu-slim
         steps:
             - uses: actions/checkout@v7
@@ -10,5 +11,6 @@ jobs:
               with:
                 node-version: '22'
             - run: npm install
-            - run: npm run check
-            - run: npm run lint
+            - run: npm run docs
+            - run: npm pack
+            - run: npm publish --access=public
