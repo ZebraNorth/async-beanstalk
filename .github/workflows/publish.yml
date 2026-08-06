@@ -27,6 +27,7 @@ jobs:
             - run: npm publish --access=public
             - run: |
                 mv docs $RUNNER_TEMP
+                git checkout .
                 git checkout github-pages
                 mv $RUNNER_TEMP/docs/* .
                 git add .
