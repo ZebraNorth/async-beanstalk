@@ -32,6 +32,7 @@ jobs:
                 git checkout .
                 git checkout github-pages
                 git clean --force -d
+                rm -f *
                 mv $RUNNER_TEMP/docs/* .
                 git add .
                 git commit -am "${GITHUB_REF#refs/tags/}"
