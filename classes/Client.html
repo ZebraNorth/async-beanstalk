@@ -173,7 +173,7 @@
 send commands and receive responses.</p>
 </div></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L57">Client.ts:57</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L61">Client.ts:61</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-accordion" open><summary class="tsd-accordion-summary tsd-index-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
@@ -222,18 +222,19 @@ send commands and receive responses.</p>
 <div class="tsd-signature tsd-anchor-link" id="constructorclient"><span class="tsd-signature-keyword">new</span> <span class="tsd-kind-constructor-signature">Client</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">readTimeoutMs</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <a href="" class="tsd-signature-type tsd-kind-class">Client</a><a href="#constructorclient" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Create the client.</p>
+<p>The optional readTimeoutMs parameter allows you to specify how long the client will wait for data
+from the Beanstalk server before timing out.</p>
+<p>This should be greater than the maximum time spent waiting for a job with &quot;reserve()&quot; or &quot;reserveWithTimeout()&quot;.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
-<li><span><span class="tsd-kind-parameter">readTimeoutMs</span>: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 60000</span></span>
-<div class="tsd-comment tsd-typography"><p>The maximum number of milliseconds to wait when reading from the server.
-Note: This should be greater than the maximum time spent waiting for a job with
-&quot;reserve()&quot; or &quot;reserveWithTimeout()&quot;.</p>
+<li><span><span class="tsd-kind-parameter">readTimeoutMs</span>: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 600000</span></span>
+<div class="tsd-comment tsd-typography"><p>The maximum number of milliseconds to wait when reading from the server.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="" class="tsd-signature-type tsd-kind-class">Client</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L75">Client.ts:75</a></li></ul></aside></div></li></ul></section></section></details>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L82">Client.ts:82</a></li></ul></aside></div></li></ul></section></section></details>
 <details class="tsd-panel-group tsd-member-group tsd-accordion" open><summary class="tsd-accordion-summary" data-key="section-Methods"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
 <h2 class="tsd-anchor-link" id="methods-1">Methods<a href="#methods-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2></summary>
 <section>
@@ -262,7 +263,7 @@ Note: This should be greater than the maximum time spent waiting for a job with
 <h4 class="tsd-anchor-link" id="see">See<a href="#see" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><a href="#kick" class="tsd-kind-method">kick</a></p>
 </div></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L346">Client.ts:346</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L350">Client.ts:350</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="close"><span>close</span><a href="#close" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -274,7 +275,7 @@ Note: This should be greater than the maximum time spent waiting for a job with
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves when the connection is closed.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L439">Client.ts:439</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L443">Client.ts:443</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="connect"><span>connect</span><a href="#connect" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -290,12 +291,12 @@ Note: This should be greater than the maximum time spent waiting for a job with
 <div class="tsd-comment tsd-typography"><p>The server's hostname or IP address.</p>
 </div></li>
 <li><span><span class="tsd-kind-parameter">port</span>: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 11300</span></span>
-<div class="tsd-comment tsd-typography"><p>The TCP/IP port number. Defaults to 11300.</p>
+<div class="tsd-comment tsd-typography"><p>The TCP/IP port number.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves when the connection is ready or rejects if connecting fails.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L86">Client.ts:86</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L94">Client.ts:94</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="delete"><span>delete</span><a href="#delete" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -314,7 +315,7 @@ Note: This should be greater than the maximum time spent waiting for a job with
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves when the command is complete.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L315">Client.ts:315</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L319">Client.ts:319</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="ignore"><span>ignore</span><a href="#ignore" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -336,7 +337,7 @@ Note: This should be greater than the maximum time spent waiting for a job with
 <h4 class="tsd-anchor-link" id="see-1">See<a href="#see-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><a href="#watch" class="tsd-kind-method">watch</a></p>
 </div></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L129">Client.ts:129</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L137">Client.ts:137</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="kick"><span>kick</span><a href="#kick" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -356,7 +357,7 @@ otherwise, only delayed jobs will be affected.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the number of jobs set to ready.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L185">Client.ts:185</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L189">Client.ts:189</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="kickjob"><span>kick<wbr/>Job</span><a href="#kickjob" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -375,7 +376,7 @@ otherwise, only delayed jobs will be affected.</p>
 Rejects with &quot;NOT_FOUND&quot; if there was no job with the given ID.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L197">Client.ts:197</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L201">Client.ts:201</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="listtubes"><span>list<wbr/>Tubes</span><a href="#listtubes" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -387,7 +388,7 @@ Rejects with &quot;NOT_FOUND&quot; if there was no job with the given ID.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to an array of tube names.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L237">Client.ts:237</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L241">Client.ts:241</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="listtubeswatched"><span>list<wbr/>Tubes<wbr/>Watched</span><a href="#listtubeswatched" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -406,7 +407,7 @@ Rejects with &quot;NOT_FOUND&quot; if there was no job with the given ID.</p>
 </ul>
 </div></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L260">Client.ts:260</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L264">Client.ts:264</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="listtubeused"><span>list<wbr/>Tube<wbr/>Used</span><a href="#listtubeused" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -422,7 +423,7 @@ Rejects with &quot;NOT_FOUND&quot; if there was no job with the given ID.</p>
 <h4 class="tsd-anchor-link" id="see-3">See<a href="#see-3" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><a href="#use" class="tsd-kind-method">use</a></p>
 </div></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L248">Client.ts:248</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L252">Client.ts:252</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="pausetube"><span>pause<wbr/>Tube</span><a href="#pausetube" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -443,12 +444,12 @@ Rejects with &quot;NOT_FOUND&quot; if there was no job with the given ID.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves when the command is complete.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L285">Client.ts:285</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L289">Client.ts:289</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="peek"><span>peek</span><a href="#peek" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
-<div class="tsd-signature tsd-anchor-link" id="peek-1"><span class="tsd-kind-call-signature">peek</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">jobId</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#peek-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-signature tsd-anchor-link" id="peek-1"><span class="tsd-kind-call-signature">peek</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">jobId</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Job.html" class="tsd-signature-type tsd-kind-type-alias">Job</a> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span><a href="#peek-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Inspect a specific job.</p>
 </div>
@@ -458,50 +459,46 @@ Rejects with &quot;NOT_FOUND&quot; if there was no job with the given ID.</p>
 <li><span><span class="tsd-kind-parameter">jobId</span>: <span class="tsd-signature-type">number</span></span>
 <div class="tsd-comment tsd-typography"><p>The ID of the job to inspect.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the job's payload.
-Rejects with &quot;NOT_FOUND&quot; if the job is not found.</p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Job.html" class="tsd-signature-type tsd-kind-type-alias">Job</a> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the job or null if there is none.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L141">Client.ts:141</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L148">Client.ts:148</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="peekburied"><span>peek<wbr/>Buried</span><a href="#peekburied" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
-<div class="tsd-signature tsd-anchor-link" id="peekburied-1"><span class="tsd-kind-call-signature">peekBuried</span><span class="tsd-signature-symbol">()</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#peekburied-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-signature tsd-anchor-link" id="peekburied-1"><span class="tsd-kind-call-signature">peekBuried</span><span class="tsd-signature-symbol">()</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Job.html" class="tsd-signature-type tsd-kind-type-alias">Job</a> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span><a href="#peekburied-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Inspect the first buried job.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the job's payload.
-Rejects with &quot;NOT_FOUND&quot; if there are no buried jobs.</p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Job.html" class="tsd-signature-type tsd-kind-type-alias">Job</a> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the job or null if there is none.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L171">Client.ts:171</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L175">Client.ts:175</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="peekdelayed"><span>peek<wbr/>Delayed</span><a href="#peekdelayed" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
-<div class="tsd-signature tsd-anchor-link" id="peekdelayed-1"><span class="tsd-kind-call-signature">peekDelayed</span><span class="tsd-signature-symbol">()</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#peekdelayed-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-signature tsd-anchor-link" id="peekdelayed-1"><span class="tsd-kind-call-signature">peekDelayed</span><span class="tsd-signature-symbol">()</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Job.html" class="tsd-signature-type tsd-kind-type-alias">Job</a> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span><a href="#peekdelayed-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Inspect the delayed ready job.</p>
+<div class="tsd-comment tsd-typography"><p>Inspect the first delayed job.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the job's payload.
-Rejects with &quot;NOT_FOUND&quot; if there are no delayed jobs.</p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Job.html" class="tsd-signature-type tsd-kind-type-alias">Job</a> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the job or null if there is none.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L161">Client.ts:161</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L166">Client.ts:166</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="peekready"><span>peek<wbr/>Ready</span><a href="#peekready" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
-<div class="tsd-signature tsd-anchor-link" id="peekready-1"><span class="tsd-kind-call-signature">peekReady</span><span class="tsd-signature-symbol">()</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#peekready-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-signature tsd-anchor-link" id="peekready-1"><span class="tsd-kind-call-signature">peekReady</span><span class="tsd-signature-symbol">()</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Job.html" class="tsd-signature-type tsd-kind-type-alias">Job</a> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span><a href="#peekready-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Inspect the first ready job.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the job's payload.
-Rejects with &quot;NOT_FOUND&quot; if there are no ready jobs.</p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Job.html" class="tsd-signature-type tsd-kind-type-alias">Job</a> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the job or null if there is none.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L151">Client.ts:151</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L157">Client.ts:157</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="put"><span>put</span><a href="#put" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -533,7 +530,7 @@ reserved before jobs with higher priority values.</p>
 <h4 class="tsd-anchor-link" id="see-4">See<a href="#see-4" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>use</p>
 </div></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L302">Client.ts:302</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L306">Client.ts:306</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="quit"><span>quit</span><a href="#quit" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -548,7 +545,7 @@ You should therefore wait for any in-progress commands to be completed before is
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves when the command is complete.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L273">Client.ts:273</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L277">Client.ts:277</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="release"><span>release</span><a href="#release" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -573,7 +570,7 @@ You should therefore wait for any in-progress commands to be completed before is
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves when the command is complete.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L330">Client.ts:330</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L334">Client.ts:334</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="reserve"><span>reserve</span><a href="#reserve" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -585,7 +582,7 @@ You should therefore wait for any in-progress commands to be completed before is
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Job.html" class="tsd-signature-type tsd-kind-type-alias">Job</a><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to the first job that was ready in any of the watched queues.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L368">Client.ts:368</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L372">Client.ts:372</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="reservewithtimeout"><span>reserve<wbr/>With<wbr/>Timeout</span><a href="#reservewithtimeout" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -602,7 +599,7 @@ You should therefore wait for any in-progress commands to be completed before is
 if there were no jobs within the timeout.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L383">Client.ts:383</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L387">Client.ts:387</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="stats"><span>stats</span><a href="#stats" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -614,7 +611,7 @@ if there were no jobs within the timeout.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Yaml.html" class="tsd-signature-type tsd-kind-type-alias">Yaml</a><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to a map of data about the server.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L228">Client.ts:228</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L232">Client.ts:232</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="statsjob"><span>stats<wbr/>Job</span><a href="#statsjob" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -632,7 +629,7 @@ if there were no jobs within the timeout.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Yaml.html" class="tsd-signature-type tsd-kind-type-alias">Yaml</a><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to a map of data about the job.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L208">Client.ts:208</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L212">Client.ts:212</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="statstube"><span>stats<wbr/>Tube</span><a href="#statstube" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -650,7 +647,7 @@ if there were no jobs within the timeout.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/Yaml.html" class="tsd-signature-type tsd-kind-type-alias">Yaml</a><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves to a map of data about the tube.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L219">Client.ts:219</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L223">Client.ts:223</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="touch"><span>touch</span><a href="#touch" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -669,7 +666,7 @@ if there were no jobs within the timeout.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves when the command is complete.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L359">Client.ts:359</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L363">Client.ts:363</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="use"><span>use</span><a href="#use" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -684,17 +681,17 @@ if there were no jobs within the timeout.</p>
 <li><span><span class="tsd-kind-parameter">tube</span>: <span class="tsd-signature-type">string</span></span>
 <div class="tsd-comment tsd-typography"><p>The name of the tube.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves when the command is complete or rejects if the command fails.</p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Returns a promise that resolves when the command is complete.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L99">Client.ts:99</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L107">Client.ts:107</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="watch"><span>watch</span><a href="#watch" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
 <div class="tsd-signature tsd-anchor-link" id="watch-1"><span class="tsd-kind-call-signature">watch</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">tube</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><a href="#watch-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Watch a tube for incomign jobs.</p>
+<div class="tsd-comment tsd-typography"><p>Watch a tube for incoming jobs.</p>
 <p>After calling <code>watch()</code>, call <code>reserve()</code> to wait for a job to be ready.</p>
 <p>This may be called multiple times to watch multipe tubes at once.</p>
 </div>
@@ -711,7 +708,7 @@ if there were no jobs within the timeout.</p>
 <h4 class="tsd-anchor-link" id="see-5">See<a href="#see-5" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><a href="#ignore" class="tsd-kind-method">ignore</a></p>
 </div></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/790b78655640125dfc2c30cd1de447898c345aa1/Client.ts#L116">Client.ts:116</a></li></ul></aside></div></li></ul></section></section></details></div>
+<li>Defined in <a href="https://github.com/ZebraNorth/async-beanstalk/blob/93fae86440cb3e1aaac7931f9ab10bcb01e3d71c/Client.ts#L124">Client.ts:124</a></li></ul></aside></div></li></ul></section></section></details></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -732,7 +729,6 @@ if there were no jobs within the timeout.</p>
 <details open class="tsd-accordion tsd-page-navigation-section"><summary class="tsd-accordion-summary" data-key="section-Methods"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Methods</summary>
 <div><a href="#bury"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>bury</span></a><a href="#close"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>close</span></a><a href="#connect"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>connect</span></a><a href="#delete"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>delete</span></a><a href="#ignore"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>ignore</span></a><a href="#kick"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>kick</span></a><a href="#kickjob"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>kick<wbr/>Job</span></a><a href="#listtubes"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>list<wbr/>Tubes</span></a><a href="#listtubeswatched"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>list<wbr/>Tubes<wbr/>Watched</span></a><a href="#listtubeused"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>list<wbr/>Tube<wbr/>Used</span></a><a href="#pausetube"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>pause<wbr/>Tube</span></a><a href="#peek"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>peek</span></a><a href="#peekburied"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>peek<wbr/>Buried</span></a><a href="#peekdelayed"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>peek<wbr/>Delayed</span></a><a href="#peekready"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>peek<wbr/>Ready</span></a><a href="#put"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>put</span></a><a href="#quit"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>quit</span></a><a href="#release"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>release</span></a><a href="#reserve"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>reserve</span></a><a href="#reservewithtimeout"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>reserve<wbr/>With<wbr/>Timeout</span></a><a href="#stats"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>stats</span></a><a href="#statsjob"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>stats<wbr/>Job</span></a><a href="#statstube"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>stats<wbr/>Tube</span></a><a href="#touch"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>touch</span></a><a href="#use"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>use</span></a><a href="#watch"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>watch</span></a></div></details></div></details></div>
 <div class="site-menu">
-<nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://zebra-north.com">Example</a></nav>
 <nav class="tsd-navigation"><a href="../modules.html">Async Beanstalk</a>
 <ul class="tsd-small-nested-navigation" id="tsd-nav-container">
 <li>Loading...</li></ul></nav></div></div></div><footer>
