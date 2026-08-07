@@ -6,10 +6,6 @@
     "plugin": [
         "typedoc-material-theme"
     ],
-    "sidebarLinks": {
-        "GitHub": "https://github.com/ZebraNorth/async-beanstalk",
-        "NPM": "https://www.npmjs.com/package/@zebranorth/node-beanstalk"
-    },
     "navigation": {
         "includeCategories": true,
         "includeGroups": false,
