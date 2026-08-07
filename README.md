@@ -1,7 +1,7 @@
 # Async Beanstalk
 
 [GitHub](https://github.com/ZebraNorth/async-beanstalk) |
-[NPM](https://www.npmjs.com/package/@zebranorth/node-beanstalk) |
+[NPM](https://www.npmjs.com/package/@zebranorth/async-beanstalk) |
 [Zebra North](https://zebra-north.com)
 
 ---
