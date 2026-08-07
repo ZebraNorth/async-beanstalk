@@ -4,7 +4,7 @@
  * Copyright (c) Zebra North, 2026
  */
 
-import { Connection } from './Connection.js';
+import { Connection } from './Connection.ts';
 import assert from 'node:assert/strict';
 
 /**
@@ -33,6 +33,8 @@ export type Yaml = Map<string, string | number>;
 
 /**
  * Thrown as an exception when a command fails.
+ * 
+ * @public
  */
 export class BeanstalkError extends Error {
 };
@@ -40,6 +42,8 @@ export class BeanstalkError extends Error {
 /**
  * Thrown as an exception when the server runs out of memory
  * during a {@link Client.put} operation.
+ * 
+ * @public
  */
 export class JobBuried extends BeanstalkError {
     /**
@@ -67,19 +71,23 @@ export class Client {
 
     /**
      * Create the client.
+     * 
+     * The optional readTimeoutMs parameter allows you to specify how long the client will wait for data
+     * from the Beanstalk server before timing out.
+     * 
+     * This should be greater than the maximum time spent waiting for a job with "reserve()" or "reserveWithTimeout()".
      *
      * @param readTimeoutMs - The maximum number of milliseconds to wait when reading from the server.
-     *                        Note: This should be greater than the maximum time spent waiting for a job with
-     *                              "reserve()" or "reserveWithTimeout()".
      */
-    public constructor(readTimeoutMs = 60000) {
+    public constructor(readTimeoutMs = 600000) {
         this.connection = new Connection(readTimeoutMs);
     }
 
     /**
      * Connect to the Beanstalk server.
+     * 
      * @param host - The server's hostname or IP address.
-     * @param port - The TCP/IP port number. Defaults to 11300.
+     * @param port - The TCP/IP port number.
      *
      * @returns Returns a promise that resolves when the connection is ready or rejects if connecting fails.
      */
@@ -94,14 +102,14 @@ export class Client {
      *
      * @param tube - The name of the tube.
      *
-     * @returns Returns a promise that resolves when the command is complete or rejects if the command fails.
+     * @returns Returns a promise that resolves when the command is complete.
      */
     public async use(tube: string): Promise<void> {
         return this.sendCommand(() => this.handleSimpleResponse('USING ' + tube), 'use ' + tube);
     }
 
     /**
-     * Watch a tube for incomign jobs.
+     * Watch a tube for incoming jobs.
      *
      * After calling `watch()`, call `reserve()` to wait for a job to be ready.
      *
@@ -135,41 +143,37 @@ export class Client {
      *
      * @param jobId - The ID of the job to inspect.
      *
-     * @returns Returns a promise that resolves to the job's payload.
-     *          Rejects with "NOT_FOUND" if the job is not found.
+     * @returns Returns a promise that resolves to the job or null if there is none.
      */
-    public async peek(jobId: number): Promise<string> {
-        return this.sendCommand(() => this.handleDataResponse('FOUND'), `peek ${jobId.toString()}`);
+    public async peek(jobId: number): Promise<Job | null> {
+        return this.sendCommand(() => this.handleJobResponse('FOUND'), `peek ${jobId.toString()}`);
     }
 
     /**
      * Inspect the first ready job.
      *
-     * @returns Returns a promise that resolves to the job's payload.
-     *          Rejects with "NOT_FOUND" if there are no ready jobs.
+     * @returns Returns a promise that resolves to the job or null if there is none.
      */
-    public async peekReady(): Promise<string> {
-        return this.sendCommand(() => this.handleDataResponse('FOUND'), `peek-ready`);
+    public async peekReady(): Promise<Job | null> {
+        return this.sendCommand(() => this.handleJobResponse('FOUND'), `peek-ready`);
     }
 
     /**
-     * Inspect the delayed ready job.
+     * Inspect the first delayed job.
      *
-     * @returns Returns a promise that resolves to the job's payload.
-     *          Rejects with "NOT_FOUND" if there are no delayed jobs.
+     * @returns Returns a promise that resolves to the job or null if there is none.
      */
-    public async peekDelayed(): Promise<string> {
-        return this.sendCommand(() => this.handleDataResponse('FOUND'), `peek-delayed`);
+    public async peekDelayed(): Promise<Job | null> {
+        return this.sendCommand(() => this.handleJobResponse('FOUND'), `peek-delayed`);
     }
 
     /**
      * Inspect the first buried job.
      *
-     * @returns Returns a promise that resolves to the job's payload.
-     *          Rejects with "NOT_FOUND" if there are no buried jobs.
+     * @returns Returns a promise that resolves to the job or null if there is none.
      */
-    public async peekBuried(): Promise<string> {
-        return this.sendCommand(() => this.handleDataResponse('FOUND'), `peek-buried`);
+    public async peekBuried(): Promise<Job | null> {
+        return this.sendCommand(() => this.handleJobResponse('FOUND'), `peek-buried`);
     }
 
     /**
@@ -366,7 +370,7 @@ export class Client {
      * @returns Returns a promise that resolves to the first job that was ready in any of the watched queues.
      */
     public async reserve(): Promise<Job> {
-        const job = await this.sendCommand(() => this.handleJobResponse(), 'reserve');
+        const job = await this.sendCommand(() => this.handleJobResponse('RESERVED'), 'reserve');
 
         // Only reserveWithTimeout() should return null.
         assert(job !== null);
@@ -381,7 +385,7 @@ export class Client {
      *          if there were no jobs within the timeout.
      */
     public async reserveWithTimeout(timeout: number): Promise<Job | null> {
-        return this.sendCommand(() => this.handleJobResponse(), 'reserve-with-timeout ' + timeout.toString());
+        return this.sendCommand(() => this.handleJobResponse('RESERVED'), 'reserve-with-timeout ' + timeout.toString());
 
     }
 
@@ -523,15 +527,17 @@ export class Client {
      * @throws {@link JobBuried}
      * Throws if the server runs out of memory. The job can be started with {@link kick}.
      */
-    private async handleJobResponse(): Promise<Job | null> {
+    private async handleJobResponse(expected: string): Promise<Job | null> {
         const jobInfo = (await this.connection.readLine()).split(' ');
 
-        if (jobInfo[0] === 'RESERVED') {
+        if (jobInfo[0] === expected) {
             const id = parseInt(jobInfo[1]);
             const payload = await this.connection.readBytes(parseInt(jobInfo[2]));
 
             return { id, payload };
         } else if (jobInfo[0] === 'TIMED_OUT') {
+            return null;
+        } else if (jobInfo[0] === 'NOT_FOUND') {
             return null;
         } else if (jobInfo[0] === 'BURIED') {
             const e = new JobBuried('Server out of memory');

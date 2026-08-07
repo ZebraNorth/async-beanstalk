@@ -7,7 +7,8 @@
         "typedoc-material-theme"
     ],
     "sidebarLinks": {
-        "Example": "https://zebra-north.com"
+        "GitHub": "https://github.com/ZebraNorth/async-beanstalk",
+        "NPM": "https://www.npmjs.com/package/@zebranorth/node-beanstalk"
     },
     "navigation": {
         "includeCategories": true,
